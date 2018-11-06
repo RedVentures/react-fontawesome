@@ -319,7 +319,9 @@
 	  }
 	}
 
-	function FontAwesomeIcon(props) {
+	function FontAwesomeIcon(_ref2) {
+	  var forwardedRef = _ref2.forwardedRef,
+	      props = objectWithoutProperties(_ref2, ['forwardedRef']);
 	  var iconArgs = props.icon,
 	      maskArgs = props.mask,
 	      symbol = props.symbol,
@@ -344,7 +346,7 @@
 
 	  var abstract = renderedIcon.abstract;
 
-	  var extraProps = {};
+	  var extraProps = { ref: forwardedRef };
 
 	  Object.keys(props).forEach(function (key) {
 	    if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
@@ -412,7 +414,11 @@
 
 	var convertCurry = convert.bind(null, React.createElement);
 
-	exports.FontAwesomeIcon = FontAwesomeIcon;
+	var FontAwesomeIcon$1 = React.forwardRef(function (props, ref) {
+	  return React.createElement(FontAwesomeIcon, _extends({}, props, { forwardedRef: ref }));
+	});
+
+	exports.FontAwesomeIcon = FontAwesomeIcon$1;
 
 	Object.defineProperty(exports, '__esModule', { value: true });
 
