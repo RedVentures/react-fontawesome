@@ -86,5 +86,5 @@
   ],
   "publishConfig": {
     "registry": "https://artifactory.rvapps.io/api/npm/npm-rvapps-general/"
-  },
+  }
 }
