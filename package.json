@@ -83,5 +83,8 @@
     "index.js",
     "index.es.js",
     "index.d.ts"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://artifactory.rvapps.io/api/npm/npm-rvapps-general/"
+  },
 }
