@@ -1,5 +1,5 @@
 {
-  "name": "@fortawesome/react-fontawesome",
+  "name": "react-fontawesome-with-refs",
   "description": "Official React component for Font Awesome 5",
   "version": "0.1.3",
   "main": "index.js",

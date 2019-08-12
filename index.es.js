@@ -2,7 +2,7 @@ import { icon, parse } from '@fortawesome/fontawesome-svg-core';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -314,7 +314,9 @@ function normalizeIconArgs(icon$$1) {
   }
 }
 
-function FontAwesomeIcon(props) {
+function FontAwesomeIcon(_ref2) {
+  var forwardedRef = _ref2.forwardedRef,
+      props = objectWithoutProperties(_ref2, ['forwardedRef']);
   var iconArgs = props.icon,
       maskArgs = props.mask,
       symbol = props.symbol,
@@ -339,7 +341,7 @@ function FontAwesomeIcon(props) {
 
   var abstract = renderedIcon.abstract;
 
-  var extraProps = {};
+  var extraProps = { ref: forwardedRef };
 
   Object.keys(props).forEach(function (key) {
     if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
@@ -407,4 +409,8 @@ FontAwesomeIcon.defaultProps = {
 
 var convertCurry = convert.bind(null, React.createElement);
 
-export { FontAwesomeIcon };
+var FontAwesomeIcon$1 = React.forwardRef(function (props, ref) {
+  return React.createElement(FontAwesomeIcon, _extends({}, props, { forwardedRef: ref }));
+});
+
+export { FontAwesomeIcon$1 as FontAwesomeIcon };
